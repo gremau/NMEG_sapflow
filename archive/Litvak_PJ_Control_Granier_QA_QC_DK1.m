@@ -9,10 +9,7 @@
 % on a site specific basis (PJ Control and PJ Girdle). Secondarily, the
 % script reads in 30 minute data for the respective site, and joins the
 % data with the manually entered sapflow data.
-% Set path to find ameriflux daily file for the site
-af_path = 'C:\Users\greg\Desktop\sapflow_test_data\';
-
-amfluxdata = readtable( [af_path 'AllAmfluxData_30min_Reichstein.csv'], ...
+amfluxdata = readtable( 'AllAmfluxData_30min_Reichstein.csv', ...
     'Delimiter', ',', 'TreatAsEmpty','NA');
 
 % Read in the manually created sapflow file, and determine the start and
