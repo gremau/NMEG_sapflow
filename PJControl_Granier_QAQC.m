@@ -29,6 +29,7 @@ startYear = min(ltsdata.Year);
 stopYear = max(ltsdata.Year);
 ts_stop = length(ltsdata.Year);
 
+% Get a table of concatenated 30 minute Ameriflux data
 af_data = get_af_data( 'Mpj', af_path, startYear, stopYear );
 
 % Specify variables of interest to be extracted from the ameriflux data
@@ -50,7 +51,7 @@ Precip = af_data.P_F;
 %TENGO UN PROBLEMA CON Litvak_timestamp QUE ME GENERA FALOS EL DIA 1 DE
 %ENERO DE CADA AÑO!!!,LO CAMBIO MANUALMENTE POR EL MOMENTO.
 %%
-% Not sure why so much data is removed here...
+% In old script 2008-2012 data was removed and QC is only for 2013
 %ltsdata_1(1:96385,12:31) = {NaN};
 
 % Subset the Granier data
@@ -285,7 +286,7 @@ run Granier_QAQC_Fig2_5;
 %%
 % It might be helpful to have open the Excel file with the timestamps and 
 % corresponding dates/times so you know what season, etc., you're looking at.
-run Granier_QAQC_Fig6_DK1;
+run Granier_QAQC_Fig6;
 
 %%
 % Plot dTmax for probe in question
