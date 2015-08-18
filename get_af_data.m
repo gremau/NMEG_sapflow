@@ -12,11 +12,11 @@ for i = 1:length(af_years)
     af_fname = ['US-', site '_' num2str(af_years(i)) '_gapfilled.txt'];
     data = dlmread( [path af_fname], ',', 5, 0 );
     data( data==-9999 ) = NaN; % Convert -9999 to NaN
-    raw = [raw ; data];
+    raw = [raw ; data( 1:end-1, :)];% Remove duplicated row at end of AF file
 end
 % Add an empty year of data for 2008 at Mpg
 if site=='Mpg'
-    empty = nan * data;
+    empty = nan * zeros( 48*366, size(data, 2) ); % 2008 is leapyear!
     raw = [empty ; raw ];
 end
 

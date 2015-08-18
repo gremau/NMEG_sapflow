@@ -24,7 +24,7 @@ addpath('figure_scripts\');
 
 % Read in the manually created sapflow file, and determine the start and
 % stop date of the data
-ltsdata = readtable( [raw_sap_path 'Input_PJg_continuo_todo_timecol.csv'], 'Delimiter', ',' );
+ltsdata = readtable( [raw_sap_path 'Input_PJg_continuo_todo_timecol_3.csv'], 'Delimiter', ',' );
 startYear = min(ltsdata.Year);
 stopYear = max(ltsdata.Year);
 ts_stop = length(ltsdata.Year);
@@ -64,7 +64,7 @@ Precip = af_data.P_F;
 
 
 %To work directly with the database with right timestamp (this is the one I finally used):
-plotdata = dlmread([raw_sap_path 'Input_PJg_continuo_todo_timecol.csv'],',',1,1);% AQUI PASA DE LA PRIMERA COLUMNA Y DE LA PRIMERA LINEA
+plotdata = dlmread([raw_sap_path 'Input_PJg_continuo_todo_timecol_3.csv'],',',1,1);% AQUI PASA DE LA PRIMERA COLUMNA Y DE LA PRIMERA LINEA
 lts=  plotdata(:,1:11);
 ltsdata = [lts(:,:) plotdata(:,84:113)]; %clear lts; %esto coje los datos unicamente de sapflow (ahora 76:95 con nuevo archivo), y crea un nuevo archivo, ltsdata, CON LAS lts COLUMNAS que cró make_Litvak_timestamp Y LOS DATOS DE FLUJO DE ESAS FECHAS que estaban en plotdata 
 
